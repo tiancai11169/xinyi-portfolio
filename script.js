@@ -1,0 +1,15 @@
+const header = document.querySelector('.site-header');
+const toggle = document.querySelector('.menu-toggle');
+toggle.addEventListener('click', () => { const open = header.classList.toggle('open'); toggle.setAttribute('aria-expanded', open); });
+document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => header.classList.remove('open')));
+const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); }), { threshold: .14 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+const dialog = document.querySelector('#note-dialog');
+const dialogText = dialog.querySelector('.dialog-text');
+document.querySelectorAll('.note-card').forEach(card => card.addEventListener('click', () => { dialogText.textContent = card.dataset.note; dialog.showModal(); }));
+dialog.querySelector('.close').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+const sections = [...document.querySelectorAll('main section')];
+const links = [...document.querySelectorAll('nav a')];
+new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id)); }), { rootMargin: '-35% 0px -55%' }).observe;
+sections.forEach(section => new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting) links.forEach(link => link.classList.toggle('active', link.hash === '#' + section.id)); }), {rootMargin:'-35% 0px -55%'}).observe(section));
