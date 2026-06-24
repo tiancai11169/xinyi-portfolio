@@ -8,3 +8,7 @@
 .portrait-frame.apple-girl .pose{position:absolute;inset:6% 6%;width:88%;height:88%;margin:0;object-fit:contain;object-position:center;filter:none;opacity:0;animation:apple-poses 12s steps(1,end) infinite}
 .portrait-frame.apple-girl .pose-code{animation-delay:-9s}.portrait-frame.apple-girl .pose-think{animation-delay:-6s}.portrait-frame.apple-girl .pose-jump{animation-delay:-3s}
 @keyframes apple-poses{0%,24.9%{opacity:1;transform:translateY(0) rotate(0)}25%,100%{opacity:0;transform:translateY(5px) rotate(-1deg)}}
+
+.cat-companion{position:absolute;left:48%;bottom:13px;width:128px;z-index:2;transform-origin:50% 100%;animation:cat-float 3.1s ease-in-out infinite}.cat-companion img{display:block;width:100%;filter:drop-shadow(4px 6px 0 rgba(73,34,29,.18));animation:cat-breathe 3.1s ease-in-out infinite}.cat-companion span{position:absolute;right:-64px;top:-4px;white-space:nowrap;font:11px 'DM Mono',monospace;transform:rotate(-7deg)}
+@keyframes cat-float{50%{transform:translateY(-8px) rotate(-2deg)}}@keyframes cat-breathe{50%{transform:scale(1.025,.985)}}
+@media(max-width:720px){.cat-companion{left:7%;bottom:17px;width:92px}.cat-companion span{display:none}}
