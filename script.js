@@ -20,3 +20,11 @@ if (notebookDialog && openNotebook) {
   notebookDialog.querySelector('.close').addEventListener('click', () => notebookDialog.close());
   notebookDialog.addEventListener('click', e => { if (e.target === notebookDialog) notebookDialog.close(); });
 }
+document.querySelectorAll('.experience-card').forEach(card => {
+  const toggleButton = card.querySelector('.experience-toggle');
+  if (!toggleButton) return;
+  toggleButton.addEventListener('click', () => {
+    const isOpen = card.classList.toggle('is-open');
+    toggleButton.setAttribute('aria-expanded', String(isOpen));
+  });
+});
