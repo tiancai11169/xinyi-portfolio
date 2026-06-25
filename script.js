@@ -13,3 +13,10 @@ const sections = [...document.querySelectorAll('main section')];
 const links = [...document.querySelectorAll('nav a')];
 new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id)); }), { rootMargin: '-35% 0px -55%' }).observe;
 sections.forEach(section => new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting) links.forEach(link => link.classList.toggle('active', link.hash === '#' + section.id)); }), {rootMargin:'-35% 0px -55%'}).observe(section));
+const notebookDialog = document.querySelector('#notebook-dialog');
+const openNotebook = document.querySelector('.open-notebook');
+if (notebookDialog && openNotebook) {
+  openNotebook.addEventListener('click', () => notebookDialog.showModal());
+  notebookDialog.querySelector('.close').addEventListener('click', () => notebookDialog.close());
+  notebookDialog.addEventListener('click', e => { if (e.target === notebookDialog) notebookDialog.close(); });
+}
