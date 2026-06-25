@@ -90,12 +90,6 @@ document.querySelectorAll('.portfolio-tab[data-case]').forEach(tab => {
 
 const cat = document.querySelector('.cat-companion');
 if (cat) {
-  if (!cat.querySelector('.cat-wink-eye')) {
-    const winkEye = document.createElement('span');
-    winkEye.className = 'cat-wink-eye';
-    winkEye.setAttribute('aria-hidden', 'true');
-    cat.appendChild(winkEye);
-  }
   cat.addEventListener('click', () => {
     cat.classList.remove('is-playful');
     void cat.offsetWidth;
