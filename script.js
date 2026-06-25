@@ -57,11 +57,13 @@ if (notebookDialog && openNotebook) {
 let currentCase = 0;
 const portfolioCases = [...document.querySelectorAll('.portfolio-case')];
 const portfolioPanels = [...document.querySelectorAll('.portfolio-detail-panel')];
+const portfolioTabs = [...document.querySelectorAll('.portfolio-tab')];
 function setPortfolioCase(index) {
   if (!portfolioCases.length) return;
   currentCase = (index + portfolioCases.length) % portfolioCases.length;
   portfolioCases.forEach((card, i) => card.classList.toggle('is-active', i === currentCase));
   portfolioPanels.forEach((panel, i) => panel.classList.toggle('is-active', i === currentCase));
+  portfolioTabs.forEach((tab, i) => tab.classList.toggle('is-active', i === currentCase));
 }
 document.querySelector('.portfolio-prev')?.addEventListener('click', () => setPortfolioCase(currentCase - 1));
 document.querySelector('.portfolio-next')?.addEventListener('click', () => setPortfolioCase(currentCase + 1));
@@ -78,3 +80,20 @@ if (portfolioDialog && portfolioOpen) {
 }
 
 setActiveNav((location.hash || '#home').slice(1));
+
+document.querySelectorAll('.portfolio-tab[data-case]').forEach(tab => {
+  const index = Number(tab.dataset.case);
+  tab.addEventListener('mouseenter', () => setPortfolioCase(index));
+  tab.addEventListener('focus', () => setPortfolioCase(index));
+  tab.addEventListener('click', () => setPortfolioCase(index));
+});
+
+const cat = document.querySelector('.cat-companion');
+if (cat) {
+  cat.addEventListener('click', () => {
+    cat.classList.remove('is-playful');
+    void cat.offsetWidth;
+    cat.classList.add('is-playful');
+    window.setTimeout(() => cat.classList.remove('is-playful'), 760);
+  });
+}
