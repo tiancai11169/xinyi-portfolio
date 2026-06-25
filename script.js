@@ -28,3 +28,10 @@ document.querySelectorAll('.experience-card').forEach(card => {
     toggleButton.setAttribute('aria-expanded', String(isOpen));
   });
 });
+const portfolioDialog = document.querySelector('#portfolio-dialog');
+const portfolioOpen = document.querySelector('.portfolio-open');
+if (portfolioDialog && portfolioOpen) {
+  portfolioOpen.addEventListener('click', () => portfolioDialog.showModal());
+  portfolioDialog.querySelector('.close').addEventListener('click', () => portfolioDialog.close());
+  portfolioDialog.addEventListener('click', e => { if (e.target === portfolioDialog) portfolioDialog.close(); });
+}
