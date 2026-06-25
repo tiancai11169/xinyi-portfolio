@@ -4,29 +4,30 @@ if (toggle) toggle.addEventListener('click', () => { const open = header.classLi
 
 const sections = [...document.querySelectorAll('main section')];
 const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
-function showPanel(id) {
-  const targetId = id || 'home';
-  sections.forEach(section => {
-    const active = section.id === targetId;
-    section.classList.toggle('panel-active', active);
-    if (active) section.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
-  });
-  navLinks.forEach(link => link.classList.toggle('active', link.hash === '#' + targetId));
-  header.classList.remove('open');
-  if (location.hash !== '#' + targetId) history.replaceState(null, '', '#' + targetId);
+
+function setActiveNav(id) {
+  navLinks.forEach(link => link.classList.toggle('active', link.hash === '#' + id));
 }
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', event => {
     const id = link.hash.slice(1);
-    if (!document.getElementById(id)) return;
+    const target = document.getElementById(id);
+    if (!target) return;
     event.preventDefault();
-    showPanel(id);
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', '#' + id);
+    setActiveNav(id);
+    header.classList.remove('open');
     if (link.dataset.case) setPortfolioCase(Number(link.dataset.case));
   });
 });
 
-const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); }), { threshold: .14 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); }), { threshold: .14 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+const navObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) setActiveNav(entry.target.id); }), { rootMargin: '-35% 0px -55%' });
+sections.forEach(section => navObserver.observe(section));
 
 const dialog = document.querySelector('#note-dialog');
 if (dialog) {
@@ -64,10 +65,10 @@ function setPortfolioCase(index) {
 }
 document.querySelector('.portfolio-prev')?.addEventListener('click', () => setPortfolioCase(currentCase - 1));
 document.querySelector('.portfolio-next')?.addEventListener('click', () => setPortfolioCase(currentCase + 1));
-
 document.querySelectorAll('.portfolio-menu a[data-case]').forEach(link => {
   link.addEventListener('click', () => setPortfolioCase(Number(link.dataset.case)));
 });
+
 const portfolioDialog = document.querySelector('#portfolio-dialog');
 const portfolioOpen = document.querySelector('.portfolio-open');
 if (portfolioDialog && portfolioOpen) {
@@ -76,4 +77,4 @@ if (portfolioDialog && portfolioOpen) {
   portfolioDialog.addEventListener('click', e => { if (e.target === portfolioDialog) portfolioDialog.close(); });
 }
 
-showPanel((location.hash || '#home').slice(1));
+setActiveNav((location.hash || '#home').slice(1));
