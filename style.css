@@ -115,7 +115,7 @@ nav a small,.nav-item>a small{text-transform:uppercase;letter-spacing:.08em;font
   place-items:center;
   border-radius:50%;
   background:#21130c;
-  color:#fff8e9;
+  color:#5b321d;
   font:800 13px 'DM Mono',monospace;
 }
 .readme-project-toggle strong{
@@ -172,7 +172,7 @@ nav a small,.nav-item>a small{text-transform:uppercase;letter-spacing:.08em;font
   margin-top:10px;
   font-size:13px;
   font-weight:900;
-  color:#fff8e9;
+  color:#5b321d;
   border-bottom:1px solid rgba(255,248,233,.7);
 }
 @media(max-width:720px){
@@ -207,3 +207,10 @@ nav a small,.nav-item>a small{text-transform:uppercase;letter-spacing:.08em;font
 .portfolio-tab:hover::after,.portfolio-tab.is-active::after{color:#9b5b35}
 .portfolio-detail-grid h4{font-size:16px;letter-spacing:.02em;color:#8a4d24}
 @media(max-width:720px){.home-contact-card{padding:18px 18px 16px}.home-contact-card p{grid-template-columns:56px 1fr;font-size:14px}.portfolio-tab::after{display:none}}
+
+.readme-project-detail p{color:#3d2a1c}
+.readme-project-detail ul{color:#4a311f}
+.readme-project-detail strong,.readme-project-toggle strong{color:#2f1b0f}
+.readme-project-toggle span{background:#f3cf85;border:1px solid rgba(91,50,29,.18);color:#5b321d}
+
+
