@@ -46,6 +46,17 @@ document.querySelectorAll('.experience-card').forEach(card => {
   });
 });
 
+
+
+document.querySelectorAll('.readme-project-card').forEach(card => {
+  const toggleButton = card.querySelector('.readme-project-toggle');
+  if (!toggleButton) return;
+  toggleButton.addEventListener('click', () => {
+    const isOpen = card.classList.toggle('is-open');
+    toggleButton.setAttribute('aria-expanded', String(isOpen));
+  });
+});
+
 const notebookDialog = document.querySelector('#notebook-dialog');
 const openNotebook = document.querySelector('.open-notebook');
 if (notebookDialog && openNotebook) {
@@ -74,7 +85,24 @@ document.querySelectorAll('.portfolio-menu a[data-case]').forEach(link => {
 const portfolioDialog = document.querySelector('#portfolio-dialog');
 const portfolioOpen = document.querySelector('.portfolio-open');
 if (portfolioDialog && portfolioOpen) {
-  portfolioOpen.addEventListener('click', () => portfolioDialog.showModal());
+  const openPortfolioDialog = () => portfolioDialog.showModal();
+  portfolioOpen.addEventListener('click', openPortfolioDialog);
+  portfolioCases.forEach((card, index) => {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', '查看作品详情');
+    card.addEventListener('click', event => {
+      if (event.target.closest('a, button')) return;
+      setPortfolioCase(index);
+      openPortfolioDialog();
+    });
+    card.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      setPortfolioCase(index);
+      openPortfolioDialog();
+    });
+  });
   portfolioDialog.querySelector('.close').addEventListener('click', () => portfolioDialog.close());
   portfolioDialog.addEventListener('click', e => { if (e.target === portfolioDialog) portfolioDialog.close(); });
 }
