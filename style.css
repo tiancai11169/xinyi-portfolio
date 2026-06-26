@@ -214,3 +214,14 @@ nav a small,.nav-item>a small{text-transform:uppercase;letter-spacing:.08em;font
 .readme-project-toggle span{background:#f3cf85;border:1px solid rgba(91,50,29,.18);color:#5b321d}
 
 
+
+.readme-project-toggle strong{color:#2f1b0f}
+.readme-project-toggle small{color:#6a4328}
+.readme-project-toggle i{color:#8a4d24}
+.readme-project-detail p,.readme-project-detail li{color:#3d2a1c}
+
+.readme-project-toggle span{background:#8a4d24!important;border:1px solid rgba(91,50,29,.18)!important;color:#fff7e6!important}
+.readme-project-toggle strong{color:#2f1b0f!important}
+.readme-project-toggle small{color:#6a4328!important}
+.readme-project-toggle i{color:#8a4d24!important}
+.readme-project-detail p,.readme-project-detail li{color:#3d2a1c!important}
