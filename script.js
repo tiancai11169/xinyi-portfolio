@@ -79,7 +79,10 @@ function setPortfolioCase(index) {
 document.querySelector('.portfolio-prev')?.addEventListener('click', () => setPortfolioCase(currentCase - 1));
 document.querySelector('.portfolio-next')?.addEventListener('click', () => setPortfolioCase(currentCase + 1));
 document.querySelectorAll('.portfolio-menu a[data-case]').forEach(link => {
-  link.addEventListener('click', () => setPortfolioCase(Number(link.dataset.case)));
+  link.addEventListener('click', () => {
+    setPortfolioCase(Number(link.dataset.case));
+    if (portfolioDialog) portfolioDialog.showModal();
+  });
 });
 
 const portfolioDialog = document.querySelector('#portfolio-dialog');
@@ -113,7 +116,10 @@ document.querySelectorAll('.portfolio-tab[data-case]').forEach(tab => {
   const index = Number(tab.dataset.case);
   tab.addEventListener('mouseenter', () => setPortfolioCase(index));
   tab.addEventListener('focus', () => setPortfolioCase(index));
-  tab.addEventListener('click', () => setPortfolioCase(index));
+  tab.addEventListener('click', () => {
+    setPortfolioCase(index);
+    if (portfolioDialog) portfolioDialog.showModal();
+  });
 });
 
 const cat = document.querySelector('.cat-companion');
@@ -125,3 +131,5 @@ if (cat) {
     window.setTimeout(() => cat.classList.remove('is-playful'), 1100);
   });
 }
+
+
