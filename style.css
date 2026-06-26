@@ -62,3 +62,121 @@ nav a small,.nav-item>a small{text-transform:uppercase;letter-spacing:.08em;font
 .cat-companion::before,.cat-companion::after{display:none!important;content:none!important}.cat-companion .cat-wink-eye{display:none!important}.cat-companion{transform-origin:50% 92%}.cat-companion.is-playful{animation:perper-tail-shake .9s ease-in-out}.cat-companion.is-playful img{animation:perper-body-sway .9s ease-in-out}@keyframes perper-tail-shake{0%,100%{transform:translateY(0) rotate(0)}18%{transform:translateY(-3px) rotate(-4deg)}36%{transform:translateY(0) rotate(5deg)}54%{transform:translateY(-2px) rotate(-3deg)}72%{transform:translateY(0) rotate(2deg)}}@keyframes perper-body-sway{0%,100%{transform:scale(1)}30%{transform:scale(1.04,.97)}60%{transform:scale(.99,1.03)}}
 /* README-style learning notebook: quiet, non-promotional profile page. */
 .notebook-readme{background:linear-gradient(180deg,#f6d78a 0%,#efbd66 100%);padding:126px 6vw 90px}.readme-shell{display:grid;grid-template-columns:280px minmax(0,820px);gap:28px;align-items:start;justify-content:center}.readme-profile,.readme-doc{background:rgba(255,250,238,.86);border:1px solid rgba(54,34,20,.14);box-shadow:0 18px 40px rgba(91,50,22,.12)}.readme-profile{border-radius:22px;padding:24px;position:sticky;top:112px}.readme-avatar{width:148px;height:148px;border-radius:50%;overflow:hidden;background:#fff1c8;border:1px solid rgba(54,34,20,.16);margin:0 auto 18px}.readme-avatar img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}.readme-profile h3{font-size:28px;letter-spacing:-.05em;margin:0 0 4px}.readme-handle{font:13px 'DM Mono',monospace;color:#7b6047;margin:0 0 14px}.readme-bio{line-height:1.7;color:#49311f;margin:0 0 18px}.readme-stats{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.readme-stats span,.readme-badges span{display:inline-flex;border:1px solid rgba(54,34,20,.16);background:#fff3cb;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800;color:#5b3922}.readme-profile .button{width:100%;justify-content:center;margin-top:8px;font-size:15px}.readme-doc{border-radius:12px;padding:34px 38px;color:#21130c}.readme-path{font:13px 'DM Mono',monospace;color:#6f5a44;margin:0 0 18px}.readme-doc h2{font-size:42px;letter-spacing:-.06em;line-height:1.05;margin:0 0 18px}.readme-doc h3{font-size:26px;letter-spacing:-.04em;margin:28px 0 12px;padding-top:6px}.readme-doc h4{font-size:18px;margin:0 0 8px}.readme-doc p{font-size:16px;line-height:1.85;color:#3d2a1c;margin:0 0 14px}.readme-doc hr{border:0;border-top:1px solid rgba(54,34,20,.16);margin:24px 0}.readme-badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 22px}.readme-projects{display:grid;gap:14px}.readme-projects section{border:1px solid rgba(54,34,20,.13);background:rgba(255,244,209,.64);border-radius:16px;padding:18px}.readme-dialog{max-width:min(860px,92vw)}.readme-dialog .notebook-pages article{background:#fff8df}@media(max-width:900px){.readme-shell{grid-template-columns:1fr}.readme-profile{position:relative;top:auto}.readme-doc{padding:26px}.readme-doc h2{font-size:34px}}
+
+/* 2026-06-26 intro system cards and avatar refinement. */
+.readme-avatar{
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-radius:50%;
+  background:radial-gradient(circle at 50% 42%,#fff8df 0 56%,#f5c96b 57% 100%);
+  box-shadow:inset 0 0 0 6px rgba(255,255,255,.55),0 12px 24px rgba(91,50,22,.12);
+}
+.readme-avatar img{
+  width:118%;
+  height:118%;
+  object-fit:contain;
+  object-position:center 52%;
+  transform:translateY(4px) scale(1.02)!important;
+}
+.readme-projects{
+  gap:12px;
+}
+.readme-project-card{
+  border:1px solid rgba(54,34,20,.16);
+  background:rgba(255,244,209,.66);
+  border-radius:18px;
+  overflow:hidden;
+  transition:background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.readme-project-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px rgba(91,50,22,.10);
+}
+.readme-project-toggle{
+  width:100%;
+  display:grid;
+  grid-template-columns:42px 1fr auto;
+  gap:8px 14px;
+  align-items:center;
+  border:0;
+  background:transparent;
+  color:inherit;
+  font-family:inherit;
+  text-align:left;
+  padding:18px;
+  cursor:pointer;
+}
+.readme-project-toggle span{
+  grid-row:1/3;
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#21130c;
+  color:#fff8e9;
+  font:800 13px 'DM Mono',monospace;
+}
+.readme-project-toggle strong{
+  font-size:18px;
+  letter-spacing:-.03em;
+  line-height:1.25;
+}
+.readme-project-toggle small{
+  color:#6f4b30;
+  line-height:1.55;
+  font-size:13px;
+}
+.readme-project-toggle i{
+  grid-row:1/3;
+  font-style:normal;
+  font-weight:900;
+  color:#9b5b35;
+  border-bottom:1px solid currentColor;
+}
+.readme-project-card.is-open .readme-project-toggle i::before{
+  content:'收起 / ';
+}
+.readme-project-detail{
+  display:none;
+  padding:0 18px 18px 74px;
+}
+.readme-project-card.is-open .readme-project-detail{
+  display:block;
+}
+.readme-project-detail p{
+  margin-bottom:10px;
+}
+.readme-project-detail ul{
+  margin:0;
+  padding-left:18px;
+  display:grid;
+  gap:8px;
+  color:#3d2a1c;
+  line-height:1.75;
+}
+.readme-project-detail strong{
+  color:#8a4d24;
+}
+.portfolio-case{
+  cursor:pointer;
+}
+.portfolio-case:focus-visible{
+  outline:3px solid #fff8e9;
+  outline-offset:6px;
+}
+.portfolio-copy::after{
+  content:'点击卡片查看详情';
+  display:inline-flex;
+  margin-top:10px;
+  font-size:13px;
+  font-weight:900;
+  color:#fff8e9;
+  border-bottom:1px solid rgba(255,248,233,.7);
+}
+@media(max-width:720px){
+  .readme-project-toggle{grid-template-columns:34px 1fr;}
+  .readme-project-toggle i{grid-column:2;grid-row:auto;justify-self:start;}
+  .readme-project-detail{padding:0 16px 16px;}
+}
