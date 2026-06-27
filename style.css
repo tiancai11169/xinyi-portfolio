@@ -225,3 +225,59 @@ nav a small,.nav-item>a small{text-transform:uppercase;letter-spacing:.08em;font
 .readme-project-toggle small{color:#6a4328!important}
 .readme-project-toggle i{color:#8a4d24!important}
 .readme-project-detail p,.readme-project-detail li{color:#3d2a1c!important}
+
+/* 2026-06-27 professional visual refresh */
+:root{
+  --ink:#241c16;
+  --paper:#f4efe8;
+  --cream:#efe7dd;
+  --cream-2:#f8f4ef;
+  --apple:#8f5f46;
+  --apple-soft:#e6d3c6;
+  --mint:#9aa89b;
+  --mint-soft:#dde6dc;
+  --line:#241c16;
+  --soft:#d9cec0;
+}
+body{background:linear-gradient(180deg,#f7f3ee 0%,#efe7dd 100%)!important;color:var(--ink)!important}
+.site-header{background:rgba(248,244,239,.9)!important;box-shadow:0 12px 28px rgba(55,39,28,.08)!important;border-color:rgba(36,28,22,.12)!important}
+.mark-brand{border-color:rgba(36,28,22,.24)!important;background:rgba(255,255,255,.72)!important}
+.face-mark{transform:none!important;font:700 13px 'DM Mono',monospace;color:#6c4d39;letter-spacing:.08em}
+.hero{background:linear-gradient(135deg,#fbf8f3 0%,#f2ebe2 48%,#e7ddd1 100%)!important;padding-bottom:90px!important}
+.resume-hero-copy .eyebrow{color:#7b695c!important}
+.resume-hero-copy h1{color:#201814!important;letter-spacing:-.075em!important}
+.role-line{color:#7c5a47!important;font-weight:700!important}
+.resume-hero-copy .intro{color:#4a3a2f!important;max-width:650px!important}
+.home-contact-card{background:rgba(255,255,255,.72)!important;border:1px solid rgba(89,68,52,.14)!important;box-shadow:0 16px 30px rgba(65,47,35,.08)!important}
+.home-contact-card p{color:#3c2f25!important}
+.home-contact-card span{color:#8c6a52!important}
+.button.outline{background:rgba(255,255,255,.62)!important;border-color:#2f241d!important;color:#2f241d!important}
+.button.mint{background:#d9e2d8!important;color:#2f241d!important}
+.professional-portrait{width:min(32vw,430px)!important;height:min(39vw,520px)!important;justify-self:center!important}
+.portrait-frame.portrait-photo{background:rgba(255,255,255,.55)!important;border:1px solid rgba(88,65,50,.18)!important;border-radius:30px!important;box-shadow:0 24px 50px rgba(67,47,34,.12)!important;overflow:hidden!important}
+.portrait-frame.portrait-photo img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 24%!important;filter:none!important;margin:0!important}
+.doodle-loop,.portrait-note,.cat-companion,.portrait-frame.apple-girl,.pose{display:none!important}
+.notebook-readme,.resume-section,.skills-section,.experience-section{background:linear-gradient(180deg,#f5efe8 0%,#ece2d7 100%)!important;color:var(--ink)!important}
+.readme-profile,.readme-doc,.skill-grid article,.experience-card,.match-widget{background:rgba(255,255,255,.66)!important;border-color:rgba(76,57,42,.12)!important;box-shadow:0 16px 34px rgba(67,47,34,.08)!important}
+.readme-avatar{background:#efe5da!important;border:1px solid rgba(76,57,42,.14)!important;box-shadow:inset 0 0 0 6px rgba(255,255,255,.45),0 12px 24px rgba(67,47,34,.08)!important}
+.readme-avatar img{transform:none!important;object-position:center 18%!important}
+.readme-handle,.readme-path,.readme-project-toggle small,.job-target h4{color:#836552!important}
+.readme-bio,.readme-doc p,.readme-doc h3,.readme-doc h2,.timeline p,.skill-grid p,.experience-detail p,.experience-detail li{color:#3e3128!important}
+.readme-stats span,.readme-badges span,.resume-highlights span{background:#f3ece5!important;border-color:rgba(76,57,42,.14)!important;color:#5b4538!important;box-shadow:none!important}
+.job-target,.readme-contact{background:rgba(245,239,232,.82)!important;border-color:rgba(76,57,42,.12)!important}
+.resume-section .timeline span,.skill-grid span,.experience-detail strong,.experience-card .experience-toggle i,.experience-detail li::marker{color:#8b6049!important}
+.skills-section{background:linear-gradient(135deg,#f7f2ec 0%,#efe7dd 100%)!important}
+.portfolio-section{background:linear-gradient(180deg,#ddd5cc 0%,#cfc4b7 100%)!important;color:#2a2019!important}
+.portfolio-top h2,.portfolio-copy h3{color:#241b16!important}
+.portfolio-top p,.portfolio-copy>p:not(.portfolio-type){color:#4c3d31!important}
+.portfolio-copy{background:rgba(255,255,255,.46)!important;border-color:rgba(76,57,42,.14)!important;backdrop-filter:blur(6px)!important}
+.portfolio-type{color:#86644c!important}
+.portfolio-tags span{background:rgba(255,255,255,.74)!important;border-color:rgba(76,57,42,.14)!important;color:#503f33!important}
+.portfolio-window{background:rgba(255,255,255,.52)!important;border-color:rgba(76,57,42,.12)!important}
+.portfolio-arrow{color:#4f3d31!important;border-bottom-color:rgba(79,61,49,.4)!important}
+.portfolio-tab{background:rgba(255,255,255,.54)!important;border-color:rgba(76,57,42,.14)!important;color:#3f3128!important}
+.portfolio-tab small{color:#8b6f5d!important}
+.portfolio-tab:hover,.portfolio-tab.is-active{background:#fffdfa!important;color:#2d221b!important;box-shadow:0 10px 20px rgba(67,47,34,.10)!important}
+.portfolio-actions .button{background:#fffdfa!important;color:#342820!important;box-shadow:0 8px 18px rgba(67,47,34,.10)!important}
+.portfolio-dialog{background:#f7f2eb!important;border-color:rgba(76,57,42,.12)!important}
+@media(max-width:900px){.professional-portrait{width:min(78vw,380px)!important;height:min(95vw,470px)!important}.hero{padding-top:90px!important}}
