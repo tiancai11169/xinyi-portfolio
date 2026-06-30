@@ -1154,7 +1154,7 @@ nav a,
 
 .capability-section { background: var(--bg-soft); }
 .capability-chain { max-width: 1160px; margin: 42px auto 0; display: grid; gap: 14px; }
-.capability-chain article { display: grid; grid-template-columns: 56px 280px 1fr; align-items: center; gap: 20px; padding: 24px 28px; border-radius: 22px; background: var(--surface-strong); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.capability-chain article { display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: center; gap: 20px; padding: 24px 28px; border-radius: 22px; background: var(--surface-strong); border: 1px solid var(--line); box-shadow: var(--shadow); }
 .capability-chain article:nth-child(2) { background: var(--surface-warm); }
 .capability-num { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font: 800 14px 'DM Mono', monospace; }
 .capability-chain h3 { margin: 0; font-size: 23px; }
@@ -1406,7 +1406,7 @@ nav a,
   .closing-panel { grid-template-columns: 1fr; }
   .workflow-grid { grid-template-columns: 1fr; }
   .workflow-grid article { min-height: auto; }
-  .capability-chain article { grid-template-columns: 56px 240px 1fr; }
+  .capability-chain article { grid-template-columns: 56px minmax(0, 1fr); }
 }
 
 @media (max-width: 900px) {
