@@ -1,7 +1,8 @@
-﻿const header = document.querySelector('.site-header');
+const header = document.querySelector('.site-header');
 const toggle = document.querySelector('.menu-toggle');
 const sections = [...document.querySelectorAll('main section')];
-const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+const navLinks = [...document.querySelectorAll('.site-header nav > a[href^="#"], .site-header .nav-item > a[href^="#"]')];
+const anchorLinks = [...document.querySelectorAll('a[href^="#"]')];
 const portfolioCases = [...document.querySelectorAll('.portfolio-case')];
 const portfolioPanels = [...document.querySelectorAll('.portfolio-detail-panel')];
 const portfolioTabs = [...document.querySelectorAll('.portfolio-tab[data-case]')];
@@ -34,7 +35,7 @@ if (toggle && header) {
   });
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+anchorLinks.forEach(link => {
   link.addEventListener('click', event => {
     const id = link.hash.slice(1);
     const target = document.getElementById(id);
@@ -47,7 +48,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     header?.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
 
-    if (link.dataset.case) setPortfolioCase(Number(link.dataset.case));
+    if (link.dataset.case !== undefined) setPortfolioCase(Number(link.dataset.case));
   });
 });
 
